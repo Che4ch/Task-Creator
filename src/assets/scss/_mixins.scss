@@ -1,0 +1,73 @@
+@mixin flex($direction: false, $justify: false, $align: false) {
+  display: flex;
+
+  @if $direction {
+    flex-direction: $direction;
+  }
+  @if $justify {
+    justify-content: $justify;
+  }
+  @if $align {
+    align-items: $align;
+  }
+}
+
+@mixin font(
+  $fontSize: false,
+  $lineHeight: false,
+  $fontWeight: false,
+  $fontStyle: false
+) {
+  @if $fontSize {
+    font-size: $fontSize;
+  }
+  @if $lineHeight {
+    line-height: $lineHeight;
+  }
+  @if $fontWeight {
+    font-weight: $fontWeight;
+  }
+  @if $fontStyle {
+    font-style: $fontStyle;
+  }
+}
+
+@mixin media-breakpoint($bp: "sm") {
+  @if ($bp == "sm") {
+    @media (min-width: map-get($grid-breakpoints, "sm")) {
+      max-width: map-get($container-max-widths, "sm");
+    }
+  }
+
+  @if ($bp == "md") {
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+      max-width: map-get($container-max-widths, "md");
+
+      @content;
+    }
+  }
+
+  @if ($bp == "lg") {
+    @media (min-width: map-get($grid-breakpoints, "lg")) {
+      max-width: map-get($container-max-widths, "lg");
+
+      @content;
+    }
+  }
+
+  @if ($bp == "xl") {
+    @media (min-width: map-get($grid-breakpoints, "xl")) {
+      max-width: map-get($container-max-widths, "xl");
+
+      @content;
+    }
+  }
+
+  @if ($bp == "xxl") {
+    @media (min-width: map-get($grid-breakpoints, "xxl")) {
+      max-width: map-get($container-max-widths, "xxl");
+
+      @content;
+    }
+  }
+}
