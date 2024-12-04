@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import UiButton from "@/components/ui/UiButton.vue"
 import UiInput from "@/components/ui/UiInput.vue"
+import SearchIcon from "@/assets/img/search.png"
 
 interface Props {
   noFooter?: boolean
@@ -14,7 +15,9 @@ defineProps<Props>()
   <div class="base">
     <div class="base__wrapper">
       <header v-if="!noHeader" class="base__header">
-        <ui-input />
+        <ui-input label="Search" icon>
+          <img class="base__icon" :src="SearchIcon" alt="" />
+        </ui-input>
       </header>
       <main class="base__main">
         <slot name="main"></slot>
